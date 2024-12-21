@@ -13,8 +13,6 @@ export default function SelectMovieSlot({ slotId, movie, onMovieSelect, onRemove
         setIsSearchForMovie(false);
     };
 
-    console.log(movie, "hello form movie");
-
     return (
         <div className="bg-zinc-900 rounded-lg p-4 flex flex-col min-h-[400px]">
             <div className="flex justify-end mb-4">
