@@ -7,7 +7,6 @@ export default function ComparePage() {
             <main className="bg-black text-white min-h-screen">
                 <Navbar />
                 <MainContent />
-                {/* <MovieSearchModal /> */}
             </main>
         </>
     );
