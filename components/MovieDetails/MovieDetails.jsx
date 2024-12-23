@@ -1,5 +1,7 @@
 import { absoluteUrlOfImage } from "@/lib/utils";
 import Image from "next/image";
+import { Suspense } from "react";
+import SocialShare from "./SocialShare";
 
 export default function MovieDetails({ currentMovie, currentMovieCastingActor }) {
     return (
@@ -122,40 +124,9 @@ export default function MovieDetails({ currentMovie, currentMovieCastingActor })
 
                                 <div className="mb-6">
                                     <h3 className="text-gray-400 mb-2">Share on social media</h3>
-                                    <div className="flex flex-wrap gap-4">
-                                        <button className="text-center cursor-pointer">
-                                            <Image
-                                                width={32}
-                                                height={32}
-                                                src="http://facebook.com/favicon.ico"
-                                                alt="Facebook"
-                                                className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-                                            />
-                                            <p className="text-sm">Facebook</p>
-                                        </button>
-
-                                        <button className="text-center cursor-pointer">
-                                            <Image
-                                                width={32}
-                                                height={32}
-                                                src="http://x.com/favicon.ico"
-                                                alt="X"
-                                                className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-                                            />
-                                            <p className="text-sm">X</p>
-                                        </button>
-
-                                        <button className="text-center cursor-pointer">
-                                            <Image
-                                                width={32}
-                                                height={32}
-                                                src="http://linkedin.com/favicon.ico"
-                                                alt="Linkedin"
-                                                className="w-8 h-8 rounded-full object-cover mb-2 mx-auto"
-                                            />
-                                            <p className="text-sm">Linkedin</p>
-                                        </button>
-                                    </div>
+                                    <Suspense fallback={<div>Loading...</div>}>
+                                        <SocialShare />
+                                    </Suspense>
                                 </div>
                             </div>
                         </div>

@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { IoFastFoodOutline } from "react-icons/io5";
-import { MdFastfood } from "react-icons/md";
-import { PiBowlFoodFill } from "react-icons/pi";
+import { IoMoveOutline } from "react-icons/io5";
+import { MdBookOnline } from "react-icons/md";
+import { PiDotOutline } from "react-icons/pi";
 
 const Loading = () => {
     const icons = [
-        <IoFastFoodOutline key="a" className="text-7xl text-yellow-500" />,
-        <MdFastfood key="b" className="text-7xl text-red-500" />,
-        <PiBowlFoodFill key="c" className="text-7xl text-green-500" />,
+        <IoMoveOutline key="a" className="text-7xl text-yellow-500" />,
+        <MdBookOnline key="b" className="text-7xl text-red-500" />,
+        <PiDotOutline key="c" className="text-7xl text-green-500" />,
     ];
 
     const [currentIconIndex, setCurrentIconIndex] = useState(0);
