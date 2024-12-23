@@ -2,6 +2,7 @@
 
 import { performLogin } from "@/actions";
 import Spinner from "@/components/Spinner";
+import { useAuth } from "@/hooks/useAuth";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -9,7 +10,7 @@ export default function LoginForm() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    // const { setAuth } = useAuth();
+    const { setAuth } = useAuth();
     const router = useRouter();
 
     const searchParams = useSearchParams();
@@ -23,11 +24,14 @@ export default function LoginForm() {
             const found = await performLogin(formData);
 
             if (found) {
-                // setAuth(found);
+                // Set user info in localStorage
+                localStorage.setItem("userInfo", JSON.stringify(found));
+
+                setAuth(found);
                 const origin = searchParams.get("origin");
 
                 if (origin) {
-                    router.push(`/movie/${origin}`);
+                    router.push(`${origin}`);
                     return;
                 }
 

@@ -40,8 +40,8 @@ export async function performLogin(formData) {
     return found;
 }
 
-export async function performAddOrRemoveToWatchList(userId, movieId) {
-    const updatedUser = await addOrRemoveToWatchList(userId, movieId);
+export async function performAddOrRemoveToWatchList(userId, movie) {
+    const updatedUser = await addOrRemoveToWatchList(userId, movie);
 
     return {
         id: updatedUser._id,

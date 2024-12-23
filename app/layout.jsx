@@ -1,3 +1,4 @@
+import AuthProvider from "@/components/auth/AuthProvider";
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -22,9 +23,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <Toaster position="top-right" />
+                <AuthProvider>{children}</AuthProvider>
 
-                {children}
+                <Toaster position="top-right" />
             </body>
         </html>
     );

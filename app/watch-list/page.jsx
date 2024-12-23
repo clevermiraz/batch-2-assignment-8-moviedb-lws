@@ -1,3 +1,4 @@
+import CheckLoggiedInUser from "@/components/CheckLoggedInUser";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,7 @@ export default function WatchList() {
         <>
             <main className="bg-body text-light min-h-screen">
                 <Navbar />
+                <CheckLoggiedInUser />
 
                 <div className="container mx-auto pt-24 pb-8">
                     <header className="mb-8">
