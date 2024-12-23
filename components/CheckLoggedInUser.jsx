@@ -9,11 +9,9 @@ export default function CheckLoggedInUser() {
     const router = useRouter();
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            if (!auth) {
-                const currentPath = window.location.pathname + window.location.search;
-                router.push(`/login/?origin=${encodeURIComponent(currentPath)}`);
-            }
+        if (!auth && !localStorage.getItem("userInfo")) {
+            const currentPath = window.location.pathname + window.location.search;
+            router.push(`/login/?origin=${encodeURIComponent(currentPath)}`);
         }
     }, [auth, router]);
 

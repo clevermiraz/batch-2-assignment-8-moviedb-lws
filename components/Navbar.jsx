@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import LogOutButton from "./LogoutButton";
 import SearchInput from "./SearchInput";
 
 export default function Navbar() {
@@ -22,6 +23,8 @@ export default function Navbar() {
                             <Link href="/watch-list" className="text-white hover:text-gray-300">
                                 Watch Later
                             </Link>
+
+                            <LogOutButton />
                         </div>
                     </div>
                     <div className="relative">

@@ -64,7 +64,8 @@ export default function UserWatchList() {
             <div id="watchLaterList" className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {/* <!-- Movie Card Template --> */}
                 {watchList?.map((movie) => (
-                    <div
+                    <Link
+                        href={`/movie/${movie?.id}`}
                         key={movie.id}
                         className="bg-moviedb-black rounded-lg overflow-hidden shadow-lg group relative"
                     >
@@ -87,7 +88,7 @@ export default function UserWatchList() {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
