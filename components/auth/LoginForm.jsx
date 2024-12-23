@@ -1,6 +1,7 @@
+"use client";
+
 import { performLogin } from "@/actions";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginForm() {

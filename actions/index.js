@@ -1,14 +1,30 @@
 "use server";
 
-import { addOrRemoveToWatchList, createUser, findUserByCredentials } from "@/lib/dbQueries";
-import { redirect } from "next/navigation";
+import { addOrRemoveToWatchList, findUserByCredentials } from "@/lib/dbQueries";
+import User from "@/models/Users";
 
 export async function registerUser(formData) {
     const user = Object.fromEntries(formData);
-    const created = await createUser(user);
 
-    if (created) {
-        redirect("/login");
+    try {
+        // Check if email already exists
+        const existingUser = await User.findOne({ email: user.email });
+        if (existingUser) {
+            throw new Error("Email already in use. Please use a different email.");
+        }
+
+        // Create new user
+        const created = await User.create(user);
+
+        return {
+            id: created._id,
+            email: created.email,
+            watchList: created.watchList,
+            newUser: true,
+        };
+    } catch (error) {
+        // Handle and return errors
+        return { error: error.message };
     }
 }
 

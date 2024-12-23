@@ -1,5 +1,5 @@
 import { fetchDataFromApi } from "@/lib/axiosInstance";
-import MovieCard from "./movieCard";
+import MovieCard from "./MovieCard";
 
 export default async function TrendingMovies() {
     const data = await fetchDataFromApi("/movie/upcoming");
