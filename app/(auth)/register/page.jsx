@@ -1,3 +1,6 @@
+import { registerUser } from "@/actions";
+import Link from "next/link";
+
 export default function RegisterPage() {
     return (
         <>
@@ -6,27 +9,31 @@ export default function RegisterPage() {
                     <div className="text-center">
                         <h1 className="text-white text-3xl font-bold mb-6">Create Your Account</h1>
 
-                        <form id="signupForm" className="space-y-4">
+                        <form action={registerUser} id="signupForm" className="space-y-4">
                             <input
                                 type="text"
+                                name="firstName"
                                 placeholder="First Name"
                                 className="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
                                 required
                             />
                             <input
                                 type="text"
+                                name="lastName"
                                 placeholder="Last Name"
                                 className="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
                                 required
                             />
                             <input
                                 type="email"
+                                name="email"
                                 placeholder="Email Address"
                                 className="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
                                 required
                             />
                             <input
                                 type="password"
+                                name="password"
                                 placeholder="Create Password"
                                 className="w-full p-3 bg-moviedb-gray text-white rounded focus:outline-none focus:ring-2 focus:ring-moviedb-red"
                                 required
@@ -55,9 +62,9 @@ export default function RegisterPage() {
 
                         <div className="mt-6 text-moviedb-gray">
                             Already have an account?
-                            <a href="#" className="text-white hover:underline">
+                            <Link href="/login" className="text-white hover:underline">
                                 Sign in
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
