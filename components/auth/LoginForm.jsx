@@ -1,11 +1,13 @@
 "use client";
 
 import { performLogin } from "@/actions";
+import Spinner from "@/components/Spinner";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginForm() {
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     // const { setAuth } = useAuth();
     const router = useRouter();
@@ -16,6 +18,7 @@ export default function LoginForm() {
         event.preventDefault();
 
         try {
+            setLoading(true);
             const formData = new FormData(event.currentTarget);
             const found = await performLogin(formData);
 
@@ -34,6 +37,8 @@ export default function LoginForm() {
             }
         } catch (err) {
             setError(err.message);
+        } finally {
+            setLoading(false);
         }
     }
     return (
@@ -58,7 +63,7 @@ export default function LoginForm() {
                 type="submit"
                 className="w-full bg-moviedb-red text-white py-3 rounded hover:bg-red-700 transition duration-300"
             >
-                Sign In
+                {loading ? <Spinner /> : "Sign In"}
             </button>
         </form>
     );

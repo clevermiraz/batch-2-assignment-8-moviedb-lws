@@ -1,6 +1,7 @@
 "use client";
 
 import { registerUser } from "@/actions";
+import Spinner from "@/components/Spinner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -94,7 +95,7 @@ export default function RegisterForm() {
                 type="submit"
                 className="w-full bg-moviedb-red text-white py-3 rounded hover:bg-red-700 transition duration-300"
             >
-                {loading ? "Loading..." : "Register"}
+                {loading ? <Spinner /> : "Register"}
             </button>
         </form>
     );

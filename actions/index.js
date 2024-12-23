@@ -1,9 +1,12 @@
 "use server";
 
 import { addOrRemoveToWatchList, findUserByCredentials } from "@/lib/dbQueries";
+import connectMongoDB from "@/lib/mongodb";
 import User from "@/models/Users";
 
 export async function registerUser(formData) {
+    await connectMongoDB();
+
     const user = Object.fromEntries(formData);
 
     try {
