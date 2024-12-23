@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import SearchInput from "./SearchInput";
 
 export default function Navbar() {
@@ -24,7 +25,9 @@ export default function Navbar() {
                         </div>
                     </div>
                     <div className="relative">
-                        <SearchInput />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <SearchInput />
+                        </Suspense>
                         <div
                             id="searchResults"
                             className="absolute w-full mt-2 bg-black bg-opacity-90 rounded-lg hidden"
